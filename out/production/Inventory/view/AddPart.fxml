@@ -43,8 +43,11 @@
             <TextField GridPane.columnIndex="1" GridPane.rowIndex="8" />
             <HBox alignment="CENTER_LEFT" prefHeight="38.0" prefWidth="282.0" spacing="40.0" GridPane.columnIndex="1">
                <children>
-                  <RadioButton mnemonicParsing="false" text="RadioButton" />
-                  <RadioButton mnemonicParsing="false" text="RadioButton" />
+                  <RadioButton mnemonicParsing="false" selected="true" text="In-House">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="PartType" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton mnemonicParsing="false" text="Outsourced" toggleGroup="$PartType" />
                </children>
             </HBox>
             <Label text="Min" GridPane.rowIndex="7" />
@@ -60,7 +63,7 @@
                <opaqueInsets>
                   <Insets />
                </opaqueInsets></Button>
-            <Button mnemonicParsing="false" text="Cancel" />
+            <Button mnemonicParsing="false" onAction="#cancelClicked" text="Cancel" />
          </children>
          <padding>
             <Insets right="20.0" />

@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="587.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddProduct">
+<AnchorPane prefHeight="587.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ModifyProduct">
    <children>
       <HBox alignment="CENTER_RIGHT" layoutX="641.0" layoutY="535.0" prefHeight="38.0" prefWidth="208.0" spacing="20.0">
          <children>
@@ -23,7 +23,7 @@
             <Insets right="20.0" />
          </padding>
       </HBox>
-      <Label layoutX="41.0" layoutY="41.0" text="Add Product">
+      <Label layoutX="41.0" layoutY="41.0" text="Modify Product">
          <font>
             <Font size="18.0" />
          </font>
