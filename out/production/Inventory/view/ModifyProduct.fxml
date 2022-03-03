@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="587.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ModifyProduct">
+   <children>
+      <HBox alignment="CENTER_RIGHT" layoutX="641.0" layoutY="535.0" prefHeight="38.0" prefWidth="208.0" spacing="20.0">
+         <children>
+            <Button mnemonicParsing="false" text="Save">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#cancelClicked" text="Cancel" />
+         </children>
+         <padding>
+            <Insets right="20.0" />
+         </padding>
+      </HBox>
+      <Label layoutX="41.0" layoutY="41.0" text="Modify Product">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <VBox layoutX="41.0" layoutY="90.0" prefHeight="200.0" prefWidth="52.0" spacing="10.0">
+         <children>
+            <Label text="ID">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="Name">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="Inv">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="Price">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="Max" />
+            <Label text="Min" />
+         </children>
+      </VBox>
+      <VBox layoutX="103.0" layoutY="90.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+         <children>
+            <TextField />
+            <TextField />
+            <TextField />
+            <TextField />
+            <TextField />
+         </children>
+      </VBox>
+      <VBox alignment="TOP_RIGHT" layoutX="367.0" layoutY="35.0" prefHeight="491.0" prefWidth="482.0" spacing="10.0" AnchorPane.bottomAnchor="61.0" AnchorPane.topAnchor="35.0">
+         <children>
+            <HBox alignment="TOP_RIGHT" prefHeight="25.0" prefWidth="328.0">
+               <children>
+                  <TextField prefHeight="25.0" prefWidth="162.0" promptText="Search by Part ID or name" />
+               </children>
+            </HBox>
+            <TableView prefHeight="181.0" prefWidth="482.0">
+              <columns>
+                <TableColumn prefWidth="56.0" text="Part ID" />
+                <TableColumn prefWidth="188.0" text="Part Name" />
+                  <TableColumn prefWidth="99.0" text="Inventory Level" />
+                  <TableColumn prefWidth="138.0" text="Price/Cost per unit" />
+              </columns>
+            </TableView>
+            <Button mnemonicParsing="false" text="Add">
+               <VBox.margin>
+                  <Insets left="30.0" right="30.0" />
+               </VBox.margin>
+            </Button>
+            <TableView layoutX="10.0" layoutY="45.0" prefHeight="181.0" prefWidth="482.0">
+               <columns>
+                  <TableColumn prefWidth="56.0" text="Part ID" />
+                  <TableColumn prefWidth="188.0" text="Part Name" />
+                  <TableColumn prefWidth="99.0" text="Inventory Level" />
+                  <TableColumn prefWidth="138.0" text="Price/Cost per unit" />
+               </columns>
+            </TableView>
+            <Button mnemonicParsing="false" text="Remove Associated Part">
+               <VBox.margin>
+                  <Insets right="30.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
