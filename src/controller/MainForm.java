@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,7 +8,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import model.InHouse;
 import model.Inventory;
@@ -25,6 +28,10 @@ public class MainForm implements Initializable {
 
     }
 
+    public static int partID;
+    @FXML private TextField partsSearchTextField;
+    @FXML private TextField productsSearchTextField;
+
     //Creates the Parts TableView
     @FXML private TableView<Part> partsTable;
     @FXML private TableColumn<Part, Integer> partIDCol;
@@ -41,17 +48,8 @@ public class MainForm implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        partsTable.setItems(Inventory.getAllParts());
-        partIDCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-        partNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
-        partInventoryLevelCol.setCellValueFactory(new PropertyValueFactory<>("stock"));
-        partPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
-
-        productsTable.setItems(Inventory.getAllProducts());
-        productIDCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-        productNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
-        productInventoryLevelCol.setCellValueFactory(new PropertyValueFactory<>("stock"));
-        productPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
+        displayPartsTable(Inventory.getAllParts());
+        displayProductsTable(Inventory.getAllProducts());
     }
 
     /**This is the add parts method.  When the Add button is clicked this method is activated, causing it to open the add parts window.  It calls the newWindow method to do that.*/
@@ -64,6 +62,7 @@ public class MainForm implements Initializable {
     }
     /**This is the modify parts method.  When the modify button is clicked this method is activated, causing it to open the modify parts window.  It calls the newWindow method to do that.*/
     public void modifyPartClicked(ActionEvent actionEvent) throws IOException{
+        partID = partsTable.getSelectionModel().getSelectedItem().getId();
         newWindow("/view/ModifyPart.fxml", "Modify Part");
     }
 
@@ -72,8 +71,17 @@ public class MainForm implements Initializable {
         newWindow("/view/ModifyProduct.fxml", "Modify Product");
     }
 
+    public void exitClicked(ActionEvent actionEvent) {
+        System.exit(0);
+    }
 
+    public void partsLetterTyped(KeyEvent keyEvent) {
+        displayPartsTable(Inventory.lookupPart(partsSearchTextField.getText()));
+    }
 
+    public void productsLetterTyped(KeyEvent keyEvent) {
+        displayProductsTable(Inventory.lookupProduct(productsSearchTextField.getText()));
+    }
     /**This is the new window method.  It is called to open new windows.
      @param viewAddress gives the address that the view is located in
      @param newTitle gives the title the new window will display
@@ -86,7 +94,22 @@ public class MainForm implements Initializable {
         openingWindow.show();
     }
 
-    public void exitClicked(ActionEvent actionEvent) {
-        System.exit(0);
+    public void displayPartsTable(ObservableList<Part> parts) {
+        partsTable.setItems(parts);
+        partIDCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        partNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        partInventoryLevelCol.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        partPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+
     }
+
+    public void displayProductsTable(ObservableList<Product> products) {
+        productsTable.setItems(products);
+        productIDCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        productNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        productInventoryLevelCol.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        productPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
+    }
+
 }

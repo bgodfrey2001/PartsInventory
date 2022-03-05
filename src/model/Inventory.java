@@ -18,6 +18,53 @@ public class Inventory {
         allProducts.add(product);
     }
 
+    public static Part lookupPart(int partID) {
+        for (Part part : allParts) {
+            if (part.getId() == partID){
+                return part;
+            }
+        }
+        return null;
+    }
+
+    public static Product lookupProduct(int productID) {
+        for(Product product : allProducts) {
+            if(product.getId() == productID) {
+                return product;
+            }
+        }
+        return null;
+    }
+
+    public static ObservableList<Part> lookupPart(String partName) {
+        ObservableList<Part> selectedParts = FXCollections.observableArrayList();
+        for (Part part : allParts){
+            if(part.getName().contains(partName)){
+                selectedParts.add(part);
+            }
+        }
+        return selectedParts;
+    }
+
+    public static ObservableList<Product> lookupProduct(String productName) {
+        ObservableList<Product> selectedProducts = FXCollections.observableArrayList();
+        for (Product product : allProducts) {
+            if (product.getName().contains(productName)){
+                selectedProducts.add(product);
+            }
+        }
+        return selectedProducts;
+    }
+
+    public static void updatePart(int index, Part selectedPart) {
+        allParts.set(index, selectedPart);
+    }
+
+    public static void updateProduct(int index, Product newProduct) {
+
+    }
+
+
     public static ObservableList<Part> getAllParts(){
         return allParts;
     }

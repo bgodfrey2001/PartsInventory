@@ -48,18 +48,18 @@
             <TextField fx:id="modifyPartInvTextField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <TextField fx:id="modifyPartPriceTextField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <TextField fx:id="modifyPartMaxTextField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="modifyPartMinTextField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
             <TextField fx:id="modifyPartMachineCompanyTextField" GridPane.columnIndex="1" GridPane.rowIndex="8" />
             <HBox alignment="CENTER_LEFT" prefHeight="38.0" prefWidth="282.0" spacing="40.0" GridPane.columnIndex="1">
                <children>
-                  <RadioButton mnemonicParsing="false" onAction="#inHouseClicked" selected="true" text="In-House">
+                  <RadioButton fx:id="inHouseRB" mnemonicParsing="false" onAction="#inHouseClicked" text="In-House">
                      <toggleGroup>
                         <ToggleGroup fx:id="PartType" />
                      </toggleGroup></RadioButton>
-                  <RadioButton mnemonicParsing="false" onAction="#outsourcedClicked" text="Outsourced" toggleGroup="$PartType" />
+                  <RadioButton fx:id="outsourcedRB" mnemonicParsing="false" onAction="#outsourcedClicked" text="Outsourced" toggleGroup="$PartType" />
                </children>
             </HBox>
             <Label text="Min" GridPane.rowIndex="7" />
-            <TextField fx:id="modifyPartMinTextField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
          </children>
       </GridPane>
       <HBox alignment="CENTER_RIGHT" layoutX="345.0" layoutY="408.0" prefHeight="45.0" prefWidth="208.0" spacing="20.0">
