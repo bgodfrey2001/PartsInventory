@@ -7,7 +7,7 @@ import javafx.collections.ObservableList;
  This is for creating products that are a combination of Parts.
  */
 public class Product {
-    private static ObservableList<Part> associatedParts = FXCollections.observableArrayList();
+    private ObservableList<Part> associatedParts = FXCollections.observableArrayList();
     private int id;
     private String name;
     private double price;
@@ -35,66 +35,114 @@ public class Product {
         this.max = max;
     }
 
+    /**
+     * @param id the id to set
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * @param name the name to set
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * @param price the price to set
+     */
     public void setPrice(double price) {
         this.price = price;
     }
 
+    /**
+     * @param stock the stock to set
+     */
     public void setStock(int stock) {
         this.stock = stock;
     }
 
+    /**
+     * @param min the min to set
+     */
     public void setMin(int min) {
         this.min = min;
     }
 
+    /**
+     * @param max the max to set
+     */
     public void setMax(int max) {
         this.max = max;
     }
 
+    /**
+     * @param associatedParts the associated parts list to set
+     */
     public void setAssociatedParts(ObservableList<Part> associatedParts) {
         this.associatedParts = associatedParts;
     }
 
-
+    /**
+     * @return the id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * @return the name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * @return the stock
+     */
     public int getStock() {
         return stock;
     }
 
+    /**
+     * @return the min
+     */
     public int getMin() {
         return min;
     }
 
+    /**
+     * @return the max
+     */
     public int getMax() { return max; }
 
+    /**
+     * @return the price
+     */
     public double getPrice() {
         return price;
     }
 
-    public static ObservableList<Part> getAllAssociatedParts() {
-        return associatedParts;
+    /**
+     * @return the associated parts list
+     */
+    public ObservableList<Part> getAllAssociatedParts() {
+        return this.associatedParts;
     }
 
-    public static void addAssociatedPart(Part part) {
-        associatedParts.add(part);
+    /**
+     * @param part the part to add
+     */
+    public void addAssociatedPart(Part part) {
+        this.associatedParts.add(part);
     }
 
+    /**
+     * @param selectedAssociatedPart the part to remove
+     */
     public boolean deleteAssociatedPart(Part selectedAssociatedPart){
-        return true;  //CHANGE THIS!!!!!!!!!!!!!!!!!!!!!!!!!!
+        boolean removed = associatedParts.remove(selectedAssociatedPart);
+        return removed;
     }
 }

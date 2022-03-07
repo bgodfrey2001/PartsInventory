@@ -32,7 +32,7 @@
                </font>
             </Label>
             <TextField fx:id="partsSearchTextField" layoutX="287.0" layoutY="2.0" onKeyTyped="#partsLetterTyped" promptText="Search by Part ID or Name" />
-            <Button layoutX="398.0" layoutY="246.0" mnemonicParsing="false" text="Delete" />
+            <Button layoutX="398.0" layoutY="246.0" mnemonicParsing="false" onAction="#deletePartClicked" text="Delete" />
             <Button layoutX="335.0" layoutY="246.0" mnemonicParsing="false" onAction="#modifyPartClicked" text="Modify" />
             <Button layoutX="287.0" layoutY="246.0" mnemonicParsing="false" onAction="#addPartsClicked" text="Add" />
          </children>
@@ -53,7 +53,7 @@
                </font>
             </Label>
             <TextField fx:id="productsSearchTextField" layoutX="287.0" layoutY="2.0" onKeyTyped="#productsLetterTyped" promptText="Search by Product ID or Name" />
-            <Button layoutX="398.0" layoutY="246.0" mnemonicParsing="false" text="Delete" />
+            <Button layoutX="398.0" layoutY="246.0" mnemonicParsing="false" onAction="#deleteProductClicked" text="Delete" />
             <Button layoutX="335.0" layoutY="246.0" mnemonicParsing="false" onAction="#modifyProductClicked" text="Modify" />
             <Button layoutX="287.0" layoutY="246.0" mnemonicParsing="false" onAction="#addProductClicked" text="Add" />
          </children>
